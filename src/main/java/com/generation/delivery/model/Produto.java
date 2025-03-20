@@ -39,11 +39,31 @@ public class Produto {
 	@NotNull
 	private int quantidadeVendida = 0;
 	
+private Integer vendas;
+    
+    
+    public Integer getVendas() {
+        return vendas;
+    }
+    public void setVendas(Integer vendas) {
+        this.vendas = vendas;
+    }
+	
 	
 	@ManyToOne 
 	@JsonIgnoreProperties("produto")
 	private Restaurante restaurante;
 	
+	@ManyToOne 
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	public Produto() {}
 	public Produto(Long id, String nomeProduto, String foto, int porcao, Double preco, Restaurante restaurante) {
 		this.id = id;
@@ -67,6 +87,7 @@ public class Produto {
 
 	public void setQuantidadeVendida(int quantidadeVendida) {
 		this.quantidadeVendida = quantidadeVendida;
+		
 	}
 
 	public Long getId() {
