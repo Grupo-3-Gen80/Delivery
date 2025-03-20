@@ -1,5 +1,8 @@
 package com.generation.delivery.model;
 
+
+
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -102,6 +105,7 @@ public class Usuario {
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
+
 
 
 }

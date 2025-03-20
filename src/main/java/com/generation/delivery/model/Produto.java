@@ -34,11 +34,40 @@ public class Produto {
 	
 	@NotNull
 	@Positive 
-	private int preco;
+	private Double preco;
+
+	@NotNull
+	private int quantidadeVendida = 0;
+	
 	
 	@ManyToOne 
 	@JsonIgnoreProperties("produto")
 	private Restaurante restaurante;
+	
+	public Produto() {}
+	public Produto(Long id, String nomeProduto, String foto, int porcao, Double preco, Restaurante restaurante) {
+		this.id = id;
+		this.nomeProduto = nomeProduto;
+		this.foto = foto;
+		this.porcao = porcao;
+		this.preco = preco;
+		this.quantidadeVendida = 0;
+		this.restaurante = restaurante;
+	}
+
+	
+	public void incrementarVendas() {
+		this.quantidadeVendida++;
+	}
+	
+
+	public int getQuantidadeVendida() {
+		return quantidadeVendida;
+	}
+
+	public void setQuantidadeVendida(int quantidadeVendida) {
+		this.quantidadeVendida = quantidadeVendida;
+	}
 
 	public Long getId() {
 		return id;
@@ -72,11 +101,11 @@ public class Produto {
 		this.porcao = porcao;
 	}
 
-	public int getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(int preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 

@@ -1,6 +1,7 @@
 package com.generation.delivery.model;
 
 public class UsuarioLogin {
+
 	private Long id;
 	private String nome;
 	private String usuario;
@@ -55,7 +56,6 @@ public class UsuarioLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
-
 
 
 }
