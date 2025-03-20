@@ -20,6 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.delivery.model.Restaurante;
 import com.generation.delivery.repository.RestauranteRepository;
+import com.generation.delivery.service.RestauranteService;
 
 import jakarta.validation.Valid;
 
@@ -30,6 +31,10 @@ public class RestauranteController {
 
 	@Autowired
 	private RestauranteRepository restauranteRepository;
+	
+	@Autowired
+	private RestauranteService restauranteService;
+
 
 	@GetMapping
 	public ResponseEntity<List<Restaurante>> getAll() {
@@ -74,6 +79,20 @@ public class RestauranteController {
 
 		restauranteRepository.deleteById(id);
 
+	}
+	
+	@GetMapping("/{id}/status")
+	public ResponseEntity<String> verificarStatus(@PathVariable Long id) {
+		Optional<Restaurante> restauranteOpt = restauranteRepository.findById(id);
+
+		if (restauranteOpt.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Restaurante não encontrado");
+		}
+
+		Restaurante restaurante = restauranteOpt.get();
+		String status = restauranteService.isAberto(restaurante) ? "Aberto" : "Fechado";
+
+		return ResponseEntity.ok(status);
 	}
 
 }
