@@ -68,7 +68,7 @@ public class ProdutoController {
                 return ResponseEntity.status(HttpStatus.OK)
                         .body(produtoRepository.save(produto));
 
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Restaurante não existe!, null");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Restaurante não existe!");
 
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

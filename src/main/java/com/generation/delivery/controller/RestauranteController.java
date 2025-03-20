@@ -2,6 +2,7 @@ package com.generation.delivery.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.delivery.model.Restaurante;
 import com.generation.delivery.repository.RestauranteRepository;
+import com.generation.delivery.service.RestauranteService;
 
 import jakarta.validation.Valid;
 
@@ -30,10 +32,26 @@ public class RestauranteController {
 
 	@Autowired
 	private RestauranteRepository restauranteRepository;
+	
+	@Autowired
+	private RestauranteService restauranteService;
 
 	@GetMapping
 	public ResponseEntity<List<Restaurante>> getAll() {
-		return ResponseEntity.ok(restauranteRepository.findAll());
+		
+		List<Restaurante> restaurantes = restauranteRepository.findAll();
+		
+		List<Restaurante> restaurantesComStatus = restaurantes.stream()
+				.map(restaurante -> {
+					if (restaurante.getHorarioAbertura() == null || restaurante.getHorarioFechamento() == null) {
+						return restaurante;
+					}
+					restaurante.setStatus(restauranteService.isAberto(restaurante) ? "Aberto" : "Fechado");
+					return restaurante;
+				})
+				.collect(Collectors.toList());
+		
+		return ResponseEntity.ok(restaurantesComStatus);
 	}
 
 	@GetMapping("/{id}")

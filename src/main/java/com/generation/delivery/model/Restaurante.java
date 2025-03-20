@@ -14,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -37,7 +38,17 @@ public class Restaurante {
 	@Size(min = 3, max = 1000, message = "O atributo Endereço tem que ser maior que 3 e menor que 1000O!")
 	private String endereco;
 	
+	@Transient
+	private String status;
 	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public Long getId() {
 		return id;
 	}
