@@ -98,7 +98,7 @@ public class Usuario {
 		this.foto = foto;
 	}
 
-	public List<Produto> getPostagem() {
+	public List<Produto> getProduto() {
 		return this.produto;
 	}
 

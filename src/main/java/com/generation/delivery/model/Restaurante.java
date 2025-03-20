@@ -1,11 +1,7 @@
 package com.generation.delivery.model;
 
-
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
-
-import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -40,8 +36,7 @@ public class Restaurante {
 	@Size(min = 3, max = 1000, message = "O atributo Endereço tem que ser maior que 3 e menor que 1000O!")
 	private String endereco;
 	
-	@UpdateTimestamp
-	private LocalDateTime horarioFuncionamento;
+	
 	
 	private LocalTime horarioAbertura;
 	private LocalTime horarioFechamento;
@@ -67,13 +62,6 @@ public class Restaurante {
 	@JsonIgnoreProperties("restaurante")
 	private List<Produto> produto;
 
-	public LocalDateTime getHorarioFuncionamento() {
-		return horarioFuncionamento;
-	}
-
-	public void setHorarioFuncionamento(LocalDateTime horarioFuncionamento) {
-		this.horarioFuncionamento = horarioFuncionamento;
-	}
 
 	public Long getId() {
 		return id;
