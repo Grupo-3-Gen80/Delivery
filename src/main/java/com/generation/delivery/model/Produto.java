@@ -38,18 +38,6 @@ public class Produto {
 
 	@NotNull
 	private int quantidadeVendida = 0;
-	
-private Integer vendas;
-    
-    
-    public Integer getVendas() {
-        return vendas;
-    }
-    public void setVendas(Integer vendas) {
-        this.vendas = vendas;
-    }
-	
-	
 	@ManyToOne 
 	@JsonIgnoreProperties("produto")
 	private Restaurante restaurante;

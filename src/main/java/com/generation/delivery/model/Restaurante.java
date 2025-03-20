@@ -3,6 +3,7 @@ package com.generation.delivery.model;
 import java.time.LocalTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -37,32 +38,6 @@ public class Restaurante {
 	private String endereco;
 	
 	
-	
-	private LocalTime horarioAbertura;
-	private LocalTime horarioFechamento;
-	
-	
-	public LocalTime getHorarioAbertura() {
-		return horarioAbertura;
-	}
-
-	public void setHorarioAbertura(LocalTime horarioAbertura) {
-		this.horarioAbertura = horarioAbertura;
-	}
-
-	public LocalTime getHorarioFechamento() {
-		return horarioFechamento;
-	}
-
-	public void setHorarioFechamento(LocalTime horarioFechamento) {
-		this.horarioFechamento = horarioFechamento;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurante", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("restaurante")
-	private List<Produto> produto;
-
-
 	public Long getId() {
 		return id;
 	}
@@ -95,6 +70,22 @@ public class Restaurante {
 		this.endereco = endereco;
 	}
 
+	public LocalTime getHorarioAbertura() {
+		return horarioAbertura;
+	}
+
+	public void setHorarioAbertura(LocalTime horarioAbertura) {
+		this.horarioAbertura = horarioAbertura;
+	}
+
+	public LocalTime getHorarioFechamento() {
+		return horarioFechamento;
+	}
+
+	public void setHorarioFechamento(LocalTime horarioFechamento) {
+		this.horarioFechamento = horarioFechamento;
+	}
+
 	public List<Produto> getProduto() {
 		return produto;
 	}
@@ -102,7 +93,19 @@ public class Restaurante {
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
+
+	@JsonFormat(pattern = "HH:mm:ss")
+	private LocalTime horarioAbertura;
 	
+	@JsonFormat(pattern = "HH:mm:ss")
+	private LocalTime horarioFechamento;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurante", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("restaurante")
+	private List<Produto> produto;
+
+	
+
 	
 
 }
