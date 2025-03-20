@@ -70,6 +70,15 @@ public class Restaurante {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
+	}
+	
 	
 	
 
