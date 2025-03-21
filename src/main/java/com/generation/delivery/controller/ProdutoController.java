@@ -28,10 +28,6 @@ public class ProdutoController {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-<<<<<<< HEAD
-    
-=======
->>>>>>> 11ad5dae17d80f91a1765a13867ce0f117585a54
     @Autowired
     private RestauranteRepository restauranteRepository;
 
