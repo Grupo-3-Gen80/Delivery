@@ -7,12 +7,21 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
+<<<<<<< HEAD
 	</parent>
 	<groupId>com.generation</groupId>
 	<artifactId>delivery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
 	<description>Projeto Delivery</description>
+=======
+		</parent>
+	<groupId>com.generation</groupId>
+	<artifactId>delivery</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>blogpessoal</name>
+	<description>Demo project for Spring Boot</description>
+>>>>>>> 11ad5dae17d80f91a1765a13867ce0f117585a54
 	<url/>
 	<licenses>
 		<license/>
@@ -54,6 +63,7 @@
 				<artifactId>mysql-connector-j</artifactId>
 				<scope>runtime</scope>
 			</dependency>
+<<<<<<< HEAD
 	    <dependency>
 	    	<groupId>org.springframework.boot</groupId>
 	    	<artifactId>spring-boot-starter-test</artifactId>
@@ -71,6 +81,8 @@
 		<artifactId>h2</artifactId>
 		<scope>test</scope>
 	</dependency>
+=======
+>>>>>>> 11ad5dae17d80f91a1765a13867ce0f117585a54
 		<!-- Dependência da Spring Security -->
 	<dependency>  
 		<groupId>org.springframework.boot</groupId>  
@@ -102,7 +114,22 @@
 <dependency>
 	<groupId>org.postgresql</groupId>
 	<artifactId>postgresql</artifactId>
+<<<<<<< HEAD
 </dependency> 
+=======
+		</dependency>
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-test</artifactId>
+    	<scope>test</scope>
+    	<exclusions>
+    		<exclusion>
+    			<groupId>org.junit.vintage</groupId>
+    			<artifactId>junit-vintage-engine</artifactId>
+    		</exclusion>
+    	</exclusions>
+    </dependency>
+>>>>>>> 11ad5dae17d80f91a1765a13867ce0f117585a54
 </dependencies>
 	<build>
 		<plugins>
@@ -113,4 +140,8 @@
 		</plugins>
 	</build>
 
+<<<<<<< HEAD
 </project>
+=======
+</project>
+>>>>>>> 11ad5dae17d80f91a1765a13867ce0f117585a54
